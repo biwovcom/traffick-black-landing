@@ -77,35 +77,62 @@
 
   /* HERO */
   .hero{
-    background:radial-gradient(ellipse at top, #1d1d22 0%, #0b0b0d 65%);
-    padding:72px 0 56px;
-    text-align:center;
+    background:#0b0b0d;
+    padding:0;
     border-bottom:1px solid var(--card-border);
+    overflow:hidden;
+    position:relative;
+  }
+  .hero-inner{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    padding:64px 0;
+  }
+  .hero-text{flex:1 1 54%;min-width:0;text-align:left;}
+  .hero-visual{
+    flex:1 1 46%;
+    display:flex;
+    justify-content:flex-end;
+  }
+  .hero-visual img{
+    width:100%;
+    max-width:640px;
+    border-radius:0;
+    display:block;
   }
   .hero h1{
-    font-size:clamp(28px, 5vw, 46px);
+    font-size:clamp(26px, 4vw, 42px);
     margin:20px 0 18px;
     font-weight:800;
   }
   .hero h1 .accent{color:var(--gold-light);}
   .hero .subtitle{
-    max-width:700px;
-    margin:0 auto 28px;
-    font-size:18px;
+    max-width:620px;
+    margin:0 0 28px;
+    font-size:17px;
     color:var(--muted);
   }
   .bullets-row{
     display:flex;
     flex-wrap:wrap;
-    justify-content:center;
+    justify-content:flex-start;
     gap:14px 22px;
-    margin:0 auto 34px;
-    max-width:760px;
+    margin:0 0 34px;
+    max-width:620px;
     font-size:14.5px;
     font-weight:600;
   }
   .bullets-row span{white-space:nowrap;color:var(--text);}
   .bullets-row .check{color:var(--green-check);margin-right:6px;}
+  @media (max-width:860px){
+    .hero-inner{flex-direction:column;padding:44px 0 36px;}
+    .hero-text{text-align:center;}
+    .hero .subtitle{margin:0 auto 28px;}
+    .bullets-row{justify-content:center;margin:0 auto 34px;}
+    .hero-visual{justify-content:center;}
+    .hero-visual img{max-width:340px;}
+  }
 
   /* Mini FAQ strip */
   .mini-faq{
@@ -258,19 +285,15 @@
     margin-top:16px;
   }
   .authority .photo{
-    flex:0 0 220px;
-    height:260px;
+    flex:0 0 260px;
     border-radius:14px;
-    background:repeating-linear-gradient(45deg, #1e1e24, #1e1e24 10px, #17171b 10px, #17171b 20px);
-    border:1px dashed var(--card-border);
+    overflow:hidden;
+    background:#000;
     display:flex;
     align-items:center;
     justify-content:center;
-    text-align:center;
-    color:var(--muted);
-    font-size:13px;
-    padding:10px;
   }
+  .authority .photo img{width:100%;height:100%;object-fit:cover;}
   @media (max-width:720px){ .authority .wrap{flex-direction:column;} .authority .photo{width:100%;flex:none;} }
 
   /* PRECIO */
@@ -353,14 +376,11 @@
   .test-slot{
     aspect-ratio:4/5;
     border-radius:12px;
-    border:1px dashed var(--card-border);
-    background:repeating-linear-gradient(45deg, #1e1e24, #1e1e24 10px, #17171b 10px, #17171b 20px);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--muted);
-    font-size:13px;
-    text-align:center;
-    padding:10px;
+    border:1px solid var(--card-border);
+    overflow:hidden;
+    background:#000;
   }
+  .test-slot img{width:100%;height:100%;object-fit:cover;object-position:top;}
   @media (max-width:720px){ .test-grid{grid-template-columns:1fr;} }
 
   /* FAQ */
@@ -411,21 +431,26 @@
 
 <!-- ============ HERO ============ -->
 <header class="hero">
-  <div class="container">
-    <span class="eyebrow">Entrenamiento online + comunidad · Acceso 1 año</span>
-    <h1>Aprende a llenar de clientes tu negocio espiritual con <span class="accent">Inteligencia Artificial</span> y Anuncios ADS — aunque nunca hayas pautado.</h1>
-    <p class="subtitle">
-      Traffick Black IA 7.0 es el entrenamiento paso a paso, 100% enfocado en el nicho espiritual y holístico,
-      donde TÚ aprendes a crear anuncios que venden, automatizar con IA y escalar tu facturación.
-      No lo hacemos por ti: te enseñamos a hacerlo y te acompañamos durante un año en la comunidad.
-    </p>
-    <div class="bullets-row">
-      <span><span class="check">✅</span>4 módulos prácticos</span>
-      <span><span class="check">✅</span>Comunidad privada 1 año</span>
-      <span><span class="check">✅</span>Sesiones en vivo (War Room)</span>
-      <span><span class="check">✅</span>Garantía de 7 días</span>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow">Entrenamiento online + comunidad · Acceso 1 año</span>
+      <h1>Aprende a llenar de clientes tu negocio espiritual con <span class="accent">Inteligencia Artificial</span> y Anuncios ADS — aunque nunca hayas pautado.</h1>
+      <p class="subtitle">
+        Traffick Black IA 7.0 es el entrenamiento paso a paso, 100% enfocado en el nicho espiritual y holístico,
+        donde TÚ aprendes a crear anuncios que venden, automatizar con IA y escalar tu facturación.
+        No lo hacemos por ti: te enseñamos a hacerlo y te acompañamos durante un año en la comunidad.
+      </p>
+      <div class="bullets-row">
+        <span><span class="check">✅</span>4 módulos prácticos</span>
+        <span><span class="check">✅</span>Comunidad privada 1 año</span>
+        <span><span class="check">✅</span>Sesiones en vivo (War Room)</span>
+        <span><span class="check">✅</span>Garantía de 7 días</span>
+      </div>
+      <a href="#precio" class="btn btn-primary">Quiero aprender el método →</a>
     </div>
-    <a href="#precio" class="btn btn-primary">Quiero aprender el método →</a>
+    <div class="hero-visual">
+      <img src="Imagen1banner.png" alt="Traffick Black IA 7.0">
+    </div>
   </div>
 </header>
 
@@ -554,7 +579,7 @@
 <!-- ============ AUTORIDAD ============ -->
 <section class="authority">
   <div class="container wrap">
-    <div class="photo">Foto profesional<br>de Orlando Sánchez<br><small>(reemplazar este bloque)</small></div>
+    <div class="photo"><img src="Foto perfil orlan.png" alt="Orlando Sánchez"></div>
     <div>
       <h2>¿Quién es Orlando Sánchez?</h2>
       <p>Orlando Sánchez es estratega digital y creador del método Traffick Black, con más de 7 años trabajando en sectores como política, inmobiliario, salud, gastronomía, equino, audiovisual y espiritualidad.</p>
@@ -612,9 +637,9 @@
   <div class="container">
     <h2>Testimonios</h2>
     <div class="test-grid">
-      <div class="test-slot">Captura de testimonio 1<br><small>(reemplazar con imagen real)</small></div>
-      <div class="test-slot">Captura de testimonio 2<br><small>(reemplazar con imagen real)</small></div>
-      <div class="test-slot">Captura de testimonio 3<br><small>(reemplazar con imagen real)</small></div>
+      <div class="test-slot"><img src="testimonio1.png" alt="Testimonio de alumno 1"></div>
+      <div class="test-slot"><img src="testimonio2.jpeg" alt="Testimonio de alumno 2"></div>
+      <div class="test-slot"><img src="testimonio3.jpeg" alt="Testimonio de alumno 3"></div>
     </div>
   </div>
 </section>
