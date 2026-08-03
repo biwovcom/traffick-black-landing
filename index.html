@@ -135,7 +135,7 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      object-position:78% 40%;
+      object-position:100% 40%;
       display:block;
     }
     .hero-mobile-img::after{
@@ -144,8 +144,25 @@
       inset:0;
       background:linear-gradient(to bottom, rgba(11,11,13,0) 70%, rgba(11,11,13,1) 100%);
     }
-    .hero-inner{padding-top:24px;padding-bottom:40px;}
-    .hero-text{max-width:100%;}
+    .hero-inner{padding-top:32px;padding-bottom:40px;}
+    .hero-text{max-width:100%;text-align:center;}
+    .hero .eyebrow{margin:0 auto;}
+    .hero h1{
+      font-size:clamp(24px, 6vw, 30px);
+      margin:22px 0 16px;
+      line-height:1.28;
+    }
+    .hero .subtitle{
+      margin:0 auto 26px;
+      font-size:15.5px;
+      line-height:1.6;
+    }
+    .bullets-row{
+      justify-content:center;
+      margin:0 auto 30px;
+      gap:10px 18px;
+    }
+    .hero .btn-primary{width:100%;}
   }
 
   /* Mini FAQ strip */
