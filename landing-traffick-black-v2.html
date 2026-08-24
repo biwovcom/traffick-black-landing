@@ -32,7 +32,8 @@
   a{color:inherit;text-decoration:none;}
   .container{max-width:960px;margin:0 auto;padding:0 20px;}
   section{padding:64px 0;}
-  h1,h2,h3{line-height:1.2;}
+  h1,h2,h3{line-height:1.2;overflow-wrap:break-word;}
+  @media (max-width:600px){ section{padding:44px 0;} }
   .eyebrow{
     display:inline-block;
     letter-spacing:.08em;
@@ -77,32 +78,58 @@
 
   /* HERO */
   .hero{
-    background:radial-gradient(ellipse at top, #1d1d22 0%, #0b0b0d 65%);
-    padding:72px 0 56px;
-    text-align:center;
+    position:relative;
+    background-image:linear-gradient(to right, #0b0b0d 0%, #0b0b0d 16%, rgba(11,11,13,.72) 30%, rgba(11,11,13,.22) 43%, rgba(11,11,13,0) 55%), url('traffick-black-landing/Imagen1banner.png');
+    background-size:cover;
+    background-position:78% center;
+    background-repeat:no-repeat;
+    padding:90px 0;
+    min-height:560px;
+    display:flex;
+    align-items:center;
+    text-align:left;
     border-bottom:1px solid var(--card-border);
   }
+  .hero .container{max-width:1100px;width:100%;}
   .hero h1{
-    font-size:clamp(28px, 5vw, 46px);
+    font-size:clamp(26px, 4vw, 46px);
     margin:20px 0 18px;
     font-weight:800;
+    max-width:540px;
   }
   .hero h1 .accent{color:var(--gold-light);}
   .hero .subtitle{
-    max-width:700px;
-    margin:0 auto 28px;
+    max-width:470px;
+    margin:0 0 28px;
     font-size:18px;
     color:var(--muted);
   }
   .bullets-row{
     display:flex;
     flex-wrap:wrap;
-    justify-content:center;
+    justify-content:flex-start;
     gap:14px 22px;
-    margin:0 auto 34px;
-    max-width:760px;
+    margin:0 0 34px;
+    max-width:540px;
     font-size:14.5px;
     font-weight:600;
+  }
+  @media (max-width:960px){
+    .hero{background-position:65% center;}
+    .hero h1{max-width:80%;}
+    .hero .subtitle, .bullets-row{max-width:640px;}
+  }
+  @media (max-width:720px){
+    .hero{
+      background-image:linear-gradient(to bottom, rgba(11,11,13,.15) 0%, rgba(11,11,13,.94) 72%, #0b0b0d 90%), url('traffick-black-landing/Imagen1banner.png');
+      background-position:center 18%;
+      min-height:auto;
+      padding:230px 0 40px;
+    }
+    .hero h1, .hero .subtitle, .bullets-row{max-width:100%;}
+  }
+  @media (max-width:480px){
+    .hero{padding:190px 0 34px;}
   }
   .bullets-row span{white-space:nowrap;color:var(--text);}
   .bullets-row .check{color:var(--green-check);margin-right:6px;}
@@ -198,16 +225,16 @@
   }
   .module-num{
     flex:0 0 auto;
-    width:46px;height:46px;
+    width:40px;height:40px;
     border-radius:50%;
     background:linear-gradient(135deg, var(--gold-light), var(--gold));
     color:#1a1408;
     font-weight:900;
-    font-size:18px;
+    font-size:16px;
     display:flex;align-items:center;justify-content:center;
   }
-  .module-card h3{font-size:17px;margin-bottom:6px;color:var(--text);}
-  .module-card p{color:var(--muted);font-size:15px;}
+  .module-card h3{font-size:16.5px;color:var(--text);}
+  .module-card p{color:var(--muted);font-size:15px;margin-top:6px;}
 
   /* BONOS */
   .bonuses{background:var(--bg-alt);border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);}
@@ -261,15 +288,9 @@
     flex:0 0 220px;
     height:260px;
     border-radius:14px;
-    background:repeating-linear-gradient(45deg, #1e1e24, #1e1e24 10px, #17171b 10px, #17171b 20px);
-    border:1px dashed var(--card-border);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:var(--muted);
-    font-size:13px;
-    padding:10px;
+    border:1px solid var(--card-border);
+    object-fit:cover;
+    object-position:top center;
   }
   @media (max-width:720px){ .authority .wrap{flex-direction:column;} .authority .photo{width:100%;flex:none;} }
 
@@ -287,6 +308,11 @@
     border-radius:18px;
     padding:36px 32px;
     box-shadow:0 20px 60px rgba(0,0,0,.4);
+  }
+  @media (max-width:480px){
+    .price-card{padding:26px 20px;}
+    .price-today .amount{font-size:36px;}
+    .stack-item{font-size:14px;}
   }
   .price-card h2{text-align:center;font-size:22px;margin-bottom:24px;}
   .stack-item{
@@ -352,14 +378,10 @@
   .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
   .test-slot{
     aspect-ratio:4/5;
+    width:100%;
     border-radius:12px;
-    border:1px dashed var(--card-border);
-    background:repeating-linear-gradient(45deg, #1e1e24, #1e1e24 10px, #17171b 10px, #17171b 20px);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--muted);
-    font-size:13px;
-    text-align:center;
-    padding:10px;
+    border:1px solid var(--card-border);
+    object-fit:cover;
   }
   @media (max-width:720px){ .test-grid{grid-template-columns:1fr;} }
 
@@ -420,12 +442,12 @@
       No lo hacemos por ti: te enseñamos a hacerlo y te acompañamos durante un año en la comunidad.
     </p>
     <div class="bullets-row">
-      <span><span class="check">✅</span>4 módulos prácticos</span>
+      <span><span class="check">✅</span>9 módulos prácticos</span>
       <span><span class="check">✅</span>Comunidad privada 1 año</span>
       <span><span class="check">✅</span>Sesiones en vivo (War Room)</span>
       <span><span class="check">✅</span>Garantía de 7 días</span>
     </div>
-    <a href="#precio" class="btn btn-primary">Quiero aprender el método →</a>
+    <a href="https://pay.hotmart.com/D104311415M?off=8std85vz" class="btn btn-primary">Quiero aprender el método →</a>
   </div>
 </header>
 
@@ -475,7 +497,7 @@
       para que consigas clientes reales sin perder tu esencia.
     </p>
     <div class="cta-center">
-      <a href="#modulos" class="btn btn-gold">Quiero el método completo</a>
+      <a href="https://pay.hotmart.com/D104311415M?off=8std85vz" class="btn btn-gold">Quiero el método completo</a>
     </div>
   </div>
 </section>
@@ -490,35 +512,48 @@
     </p>
 
     <div class="module-card">
-      <div class="module-num">0</div>
-      <div>
-        <h3>Introducción</h3>
-        <p>Activa tu mentalidad 7.0 y prepara tu negocio espiritual para escalar.</p>
-      </div>
-    </div>
-
-    <div class="module-card">
       <div class="module-num">1</div>
-      <div>
-        <h3>Arquitectura de asistentes inteligentes (BOTS)</h3>
-        <p>Configura tus asistentes y bots para automatizar procesos.</p>
-      </div>
+      <div><h3>Introducción</h3></div>
     </div>
 
     <div class="module-card">
       <div class="module-num">2</div>
-      <div>
-        <h3>Creación de contenido de alto impacto</h3>
-        <p>Enciende tu maquinaria de contenido: reels y publicaciones que atraen y venden en el nicho espiritual.</p>
-      </div>
+      <div><h3>Alianza estratégica con la IA</h3></div>
     </div>
 
     <div class="module-card">
       <div class="module-num">3</div>
-      <div>
-        <h3>Anuncios ADS y optimización automática</h3>
-        <p>Lanza campañas en Facebook optimizadas con IA para conseguir clientes de forma constante.</p>
-      </div>
+      <div><h3>Preparación hacia el Marketing del Mercado Espiritual</h3></div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">4</div>
+      <div><h3>Identifica el cliente ideal en el mercado esotérico</h3></div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">5</div>
+      <div><h3>Producción de contenido persuasivo con IA</h3></div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">6</div>
+      <div><h3>Arquitectura de ADS Andrómeda IA en mercado Holístico y Esotérico IA 7.0</h3></div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">7</div>
+      <div><h3>AGENTIX Agencia de Marketing</h3></div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">8</div>
+      <div><h3>War Room</h3></div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">9</div>
+      <div><h3>VIP DAY</h3></div>
     </div>
   </div>
 </section>
@@ -554,7 +589,7 @@
 <!-- ============ AUTORIDAD ============ -->
 <section class="authority">
   <div class="container wrap">
-    <div class="photo">Foto profesional<br>de Orlando Sánchez<br><small>(reemplazar este bloque)</small></div>
+    <img class="photo" src="traffick-black-landing/Foto perfil orlan.png" alt="Orlando Sánchez">
     <div>
       <h2>¿Quién es Orlando Sánchez?</h2>
       <p>Orlando Sánchez es estratega digital y creador del método Traffick Black, con más de 7 años trabajando en sectores como política, inmobiliario, salud, gastronomía, equino, audiovisual y espiritualidad.</p>
@@ -575,7 +610,7 @@
     <div class="price-card">
       <h2>Acceso completo por 1 año — todo lo que te llevas:</h2>
 
-      <div class="stack-item"><span>Entrenamiento completo Traffick Black IA 7.0 (4 módulos)</span><span class="val">$997</span></div>
+      <div class="stack-item"><span>Entrenamiento completo Traffick Black IA 7.0 (9 módulos)</span><span class="val">$997</span></div>
       <div class="stack-item"><span>Comunidad BLACK privada, 1 año</span><span class="val">$597</span></div>
       <div class="stack-item"><span>War Room · sesiones en vivo semanales</span><span class="val">$497</span></div>
       <div class="stack-item"><span>Acceso a todos los cursos anteriores (Traffick Black 2025 + Inmersión)</span><span class="val">$397</span></div>
@@ -585,15 +620,15 @@
 
       <div class="price-today">
         <div class="label">Hoy</div>
-        <div class="amount">USD 497</div>
-        <div class="installments">Pago único &nbsp;·&nbsp; o 12 cuotas de USD 42</div>
+        <div class="amount">USD 683</div>
+        <div class="installments">Pago único &nbsp;·&nbsp; o 12 cuotas de USD 57</div>
       </div>
 
       <div class="urgency">
-        ⚠️ Los bonos de bienvenida se cierran el 3 de septiembre de 2026 a las 7:00pm.
+        ⚠️ Los bonos de bienvenida se cierran el 31 de agosto de 2026.
       </div>
 
-      <a href="https://pay.hotmart.com/D104311415M?off=2on9hspg&bid=1776190408773" class="btn btn-primary btn-wide">¡Quiero unirme ahora! →</a>
+      <a href="https://pay.hotmart.com/D104311415M?off=8std85vz" class="btn btn-primary btn-wide">¡Quiero unirme ahora! →</a>
     </div>
   </div>
 </section>
@@ -612,9 +647,9 @@
   <div class="container">
     <h2>Testimonios</h2>
     <div class="test-grid">
-      <div class="test-slot">Captura de testimonio 1<br><small>(reemplazar con imagen real)</small></div>
-      <div class="test-slot">Captura de testimonio 2<br><small>(reemplazar con imagen real)</small></div>
-      <div class="test-slot">Captura de testimonio 3<br><small>(reemplazar con imagen real)</small></div>
+      <img class="test-slot" src="traffick-black-landing/testimonio1.png" alt="Testimonio de alumna 1">
+      <img class="test-slot" src="traffick-black-landing/testimonio2.jpeg" alt="Testimonio de alumna 2">
+      <img class="test-slot" src="traffick-black-landing/testimonio3.jpeg" alt="Testimonio de alumna 3">
     </div>
   </div>
 </section>
@@ -669,7 +704,7 @@
 
 <!-- ============ CTA STICKY MOBILE ============ -->
 <div class="sticky-cta">
-  <a href="#precio" class="btn btn-primary btn-wide">Quiero aprender el método →</a>
+  <a href="https://pay.hotmart.com/D104311415M?off=8std85vz" class="btn btn-primary btn-wide">Quiero aprender el método →</a>
 </div>
 
 </body>
